@@ -1,7 +1,11 @@
 # Inertia-Starter
  This is a simple starter kit for Laravel 11, Inertia JS, and Vue JS, without authentication. Tailwind and ZiggyVue are installed.
 
-Inertia + Vue 3 + TailwindCSS + Laravel 11 기본 프로젝트
+# github
+https://github.com/JonVadar/Laravel-Inertia-Vue-Starter.git
+
+## 기본 프로젝트 세팅
+Inertia + Vue 3 + TailwindCSS + Laravel 11 
 
 ## Requirements
 - Laravel 11
@@ -28,3 +32,4 @@ npm run dev
 php artisan serve
 ```
 
+![alt text](image.png)
