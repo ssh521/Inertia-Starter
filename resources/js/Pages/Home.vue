@@ -1,7 +1,20 @@
-<script setup></script>
+<script setup>
+const props = defineProps({
+  title: {
+    type: String,
+    default: "Home",
+    required: true,
+  },
+});
+</script>
 
 <template>
-    <header>
-        <p>This is a simple starter kit for Laravel 11, Inertia JS, and Vue JS, without authentication. Tailwind and ZiggyVue are installed.</p>
-    </header>
+  <Head :title="title" />
+  <div class="flex flex-col">
+    <main class="mt-6">
+      <h1>
+        Welcome to the Laravel 11 Inertia + Vue 3 + TailwindCSS + Laravel 11 Skeleton
+      </h1>
+    </main>
+  </div>
 </template>
