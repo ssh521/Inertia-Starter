@@ -31,4 +31,7 @@ Route::get('/home', function () {
 
 Route::inertia('/welcome', 'Welcome')->name('welcome');
 
+Route::inertia('/test', 'Test')->name('test');
+
+
 require __DIR__.'/auth.php';

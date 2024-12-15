@@ -19,4 +19,7 @@ export default defineConfig({
             },
         }),
     ],
+    optimizeDeps: {
+        include: ['@floating-ui/vue', '@floating-ui/core']
+    },
 });
