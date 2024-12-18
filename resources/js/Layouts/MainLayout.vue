@@ -92,6 +92,7 @@ const props = defineProps({
 
                 <template #content>
                   <div class="py-1">
+                    <PopupMenuLink :href="route('user.index')"> Users </PopupMenuLink>
                     <PopupMenuLink :href="route('profile.edit')">
                       개인정보
                     </PopupMenuLink>
