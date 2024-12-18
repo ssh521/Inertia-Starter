@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return Inertia::render('Home', [
@@ -37,16 +38,21 @@ Route::inertia('/test', 'Test')->name('test');
 
 
 
-Route::get('/user/index', function (Request $request) {
-    //sleep(2);
-    return Inertia::render('User/Index', [
-        'users' => User::when($request->search, function ($query) use ($request) {
-            return $query
-            ->where('name', 'like', '%' . $request->search . '%')
-            ->orWhere('email', 'like', '%' . $request->search . '%');
-        })->paginate(5)->withQueryString(),
-        'searchTerm' => $request->search,
-    ]);
-})->name('user.index');
+// Route::get('/user/index', function (Request $request) {
+//     //sleep(2);
+//     return Inertia::render('User/Index', [
+//         'users' => User::when($request->search, function ($query) use ($request) {
+//             return $query
+//             ->where('name', 'like', '%' . $request->search . '%')
+//             ->orWhere('email', 'like', '%' . $request->search . '%');
+//         })->paginate(5)->withQueryString(),
+//         'searchTerm' => $request->search,
+//     ]);
+// })->name('user.index');
+
+// Route::get('/user/index', [UserController::class, 'index'])->name('user.index');
+// Route::get('/user/show/{user}', [UserController::class, 'show'])->name('user.show');
+
+Route::resource('user', UserController::class);
 
 require __DIR__.'/auth.php';

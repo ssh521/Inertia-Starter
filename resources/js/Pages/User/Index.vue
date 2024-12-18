@@ -4,13 +4,17 @@ import { router } from "@inertiajs/vue3";
 import { debounce } from "lodash";
 import PaginationLinks from "@/Components/PaginationLinks.vue";
 import TextInput from "@/Components/TextInput.vue";
+
+// 넘어오는 값 받기
 const props = defineProps({
   users: Object,
   searchTerm: String,
 });
 
+// 검색 값 받기
 const search = ref(props.searchTerm);
 
+// 검색 값 변경 시 검색 값 전달
 watch(
   search,
   debounce((q) => {
@@ -19,6 +23,7 @@ watch(
   }, 500)
 );
 
+// 날짜 포맷
 const formatDate = (date) => {
   return new Date(date).toLocaleDateString("ko-KR", {
     year: "numeric",
@@ -75,7 +80,9 @@ const formatDate = (date) => {
                 :src="user.avatar"
               />
             </td>
-            <td class="border-t">{{ user.name }}</td>
+            <td class="border-t">
+              <Link :href="route('user.show', user.id)">{{ user.name }}</Link>
+            </td>
             <td class="border-t">{{ user.email }}</td>
             <td class="w-px border-t">{{ formatDate(user.created_at) }}</td>
           </tr>
